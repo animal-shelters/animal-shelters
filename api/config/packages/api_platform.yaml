@@ -1,6 +1,11 @@
 api_platform:
     title: Hello API Platform
     version: 1.0.0
+    swagger:
+        api_keys:
+            apiKey:
+                name: Authorization
+                type: header
     # Mercure integration, remove if unwanted
     mercure: ~
     # Good cache defaults for REST APIs

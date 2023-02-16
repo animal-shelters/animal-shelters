@@ -32,7 +32,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 			denormalizationContext: [
 				'groups' => 'user:collection:post'
 			],
-			// processor: UserPostProcessor::class,
+			processor: UserPostProcessor::class,
 		),
 		new Get(
 			normalizationContext: [
@@ -46,7 +46,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 				'groups' => 'user:item:put'
 			],
 			security: "object == user",
-			// processor: UserPostProcessor::class,
+			processor: UserPostProcessor::class,
 		),
 		new Put(
 			name: 'roles',
