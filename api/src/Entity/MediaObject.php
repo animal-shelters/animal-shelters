@@ -20,7 +20,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
-// #[Vich\Uploadable]
+#[Vich\Uploadable]
 #[ORM\Entity(repositoryClass: MediaObjectRepository::class)]
 #[ApiResource(
     types: ['https://schema.org/MediaObject'],
@@ -93,7 +93,7 @@ class MediaObject
     #[Assert\NotBlank()]
     private string $domain;
 
-    // #[Vich\UploadableField(mapping: "media_object", fileNameProperty: "filePath")]
+    #[Vich\UploadableField(mapping: "media_object", fileNameProperty: "filePath")]
     #[Assert\NotNull(groups: ['media_object:create'])]
     #[Assert\Image(maxSize: '5Mi')]
     private ?File $file = null;
