@@ -24,6 +24,10 @@ services:
         decorates: 'api_platform.openapi.factory'
         arguments: ['@.inner']
 
+    App\OpenApi\MediaObject:
+        decorates: 'api_platform.openapi.factory'
+        arguments: ['@.inner']
+
     App\State\UserPostProcessor:
         bind:
             $decorated: '@api_platform.doctrine.orm.state.persist_processor'
