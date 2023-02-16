@@ -86,7 +86,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 	security: "is_granted('ROLE_ADMIN') || (is_granted('ROLE_USER') && object == user)",
 )]
 #[ORM\Entity()]
-// #[ApiFilter(FormsForUnAdoptedAnimalsFilter::class)]
+#[ApiFilter(FormsForUnAdoptedAnimalsFilter::class)]
 class Form
 {
 	#[ORM\Id]

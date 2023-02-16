@@ -63,7 +63,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 	],
 )]
 #[ORM\Entity()]
-// #[ApiFilter(OrderFilter::class, properties: ['date' => 'ASC'])]
+#[ApiFilter(OrderFilter::class, properties: ['date' => 'ASC'])]
 class Adoption
 {
 	#[ORM\Id]

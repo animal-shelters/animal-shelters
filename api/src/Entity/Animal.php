@@ -65,7 +65,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 	OrderFilter::class,
 	properties: ['intakeDate']
 )]
-// #[ApiFilter(UnAdoptedAnimalsFilter::class)]
+#[ApiFilter(UnAdoptedAnimalsFilter::class)]
 class Animal
 {
 	#[ORM\Id]
