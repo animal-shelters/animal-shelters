@@ -7,10 +7,6 @@ RUN apk add --no-cache libc6-compat
 
 WORKDIR /srv/app
 
-RUN corepack enable && \
-	corepack prepare --activate pnpm@latest && \
-	pnpm config -g set store-dir /.pnpm-store
-
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry during dev and build.
@@ -20,11 +16,10 @@ RUN corepack enable && \
 # Deps stage, preserve dependencies in cache as long as the lockfile isn't changed
 FROM builder_base AS deps
 
-COPY --link pnpm-lock.yaml ./
-RUN pnpm fetch
+COPY --link package.json ./
+RUN npm i
 
 COPY --link . .
-RUN pnpm install -r --offline
 
 
 # Development image
@@ -33,14 +28,14 @@ FROM deps as dev
 EXPOSE 3000
 ENV PORT 3000
 
-CMD ["sh", "-c", "pnpm install -r --offline; pnpm dev"]
+CMD ["sh", "-c", "npm install; npm run dev"]
 
 
 FROM builder_base AS builder
 COPY --link . .
 COPY --from=deps --link /srv/app/node_modules ./node_modules
 
-RUN pnpm run build
+RUN npm run build
 
 
 # Production image, copy all the files and run next
