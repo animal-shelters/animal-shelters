@@ -31,5 +31,10 @@ services:
     App\State\UserPostProcessor:
         bind:
             $decorated: '@api_platform.doctrine.orm.state.persist_processor'
+
+    App\Command\CreateAdminCommand:
+        arguments:
+            $devEmail: '%env(DEV_EMAIL)%'
+            $devPassword: '%env(DEV_PASSWORD)%'
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
