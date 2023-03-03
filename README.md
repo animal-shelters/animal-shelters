@@ -1,19 +1,19 @@
 # Animal Shelters
 ## <a name="env-config">Environment configuration</a>
-[/]
-**SERVER_NAME** 
-Name of server domain 
+[/]\
+**SERVER_NAME** \
+Name of server domain \
 Default value: www.example.com
 
-[API]
-**DEV_EMAIL** 
-Email for admin user
-Default value: example@example.com
-**DEV_PASSWORD** 
-Password for admin user
-Default value: !ChangeMe!
-**DATABASE_URL**
-Template: postgresql://**login**:**password**@127.0.0.1:5432/app?serverVersion=15&charset=utf8s
+[API]\
+**DEV_EMAIL** \
+Email for admin user\
+Default value: example@example.com\
+**DEV_PASSWORD** \
+Password for admin user\
+Default value: !ChangeMe! \
+**DATABASE_URL**\
+Template: postgresql://**login**:**password**@127.0.0.1:5432/app?serverVersion=15&charset=utf8s\
 Example: postgresql://**myLogin**:**mySafePassword**@127.0.0.1:5432/app?serverVersion=15&charset=utf8
 
 ## Production instalation
