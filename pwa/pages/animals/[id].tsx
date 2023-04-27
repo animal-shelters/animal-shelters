@@ -112,8 +112,6 @@ function AnimalDetailsPage({ id }: Props) {
 }
 
 export async function getServerSideProps(context: { query: { id: number } }) {
-    const data = await axiosInstance.get(`animals/${context.query.id}`);
-    console.log(data)
     return { props: { id: context.query.id } }
 }
 
